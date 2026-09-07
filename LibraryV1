@@ -1,0 +1,2164 @@
+local flagData = {
+	main_color = Color3.fromRGB(41, 74, 122),
+	min_size = Vector2.new(400, 300),
+	toggle_key = Enum.KeyCode.RightShift,
+	can_resize = true
+}
+local imgui = game:GetService("CoreGui"):FindFirstChild("imgui")
+
+if imgui then
+	imgui:Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
+local frame = Instance.new("Frame")
+local parent = Instance.new("Frame")
+local ImageButton = Instance.new("ImageButton")
+local imageLabel = Instance.new("ImageLabel")
+local secondaryImageLabel = Instance.new("ImageLabel")
+local secondaryFrame = Instance.new("Frame")
+local textLabel = Instance.new("TextLabel")
+local secondaryParent = Instance.new("ImageLabel")
+local alternateParent = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local alternateFrame = Instance.new("Frame")
+local additionalParent = Instance.new("Frame")
+local uiListLayout = Instance.new("UIListLayout")
+local TextBox = Instance.new("TextBox")
+local alternateImageLabel = Instance.new("ImageLabel")
+local fallbackParent = Instance.new("ImageLabel")
+local secondaryTextLabel = Instance.new("TextLabel")
+local additionalImageLabel = Instance.new("ImageLabel")
+local alternateTextLabel = Instance.new("TextLabel")
+local additionalTextLabel = Instance.new("TextLabel")
+local fallbackTextLabel = Instance.new("TextLabel")
+local fallbackImageLabel = Instance.new("ImageLabel")
+local secondaryUiListLayout = Instance.new("UIListLayout")
+local TextButton = Instance.new("TextButton")
+local nestedImageLabel = Instance.new("ImageLabel")
+local imageButton = Instance.new("ImageButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local alternateUiListLayout = Instance.new("UIListLayout")
+local innerImageLabel = Instance.new("ImageLabel")
+local testTabButton = Instance.new("TextButton")
+local outerImageLabel = Instance.new("ImageLabel")
+local nestedParent = Instance.new("ImageLabel")
+local folderButton = Instance.new("TextButton")
+local previousImageLabel = Instance.new("ImageLabel")
+local currentImageLabel = Instance.new("ImageLabel")
+local innerParent = Instance.new("Frame")
+local additionalUiListLayout = Instance.new("UIListLayout")
+local outerParent = Instance.new("Frame")
+local fallbackUiListLayout = Instance.new("UIListLayout")
+local previousParent = Instance.new("ImageLabel")
+local scrollingFrame = Instance.new("ScrollingFrame")
+local textBox = Instance.new("TextBox")
+local nestedTextLabel = Instance.new("TextLabel")
+local innerTextLabel = Instance.new("TextLabel")
+local outerTextLabel = Instance.new("TextLabel")
+local previousTextLabel = Instance.new("TextLabel")
+local currentTextLabel = Instance.new("TextLabel")
+local nextTextLabel = Instance.new("TextLabel")
+local sourceTextLabel = Instance.new("TextLabel")
+local targetTextLabel = Instance.new("TextLabel")
+local textLabelVariantA = Instance.new("TextLabel")
+local currentParent = Instance.new("ImageLabel")
+local nextParent = Instance.new("ImageLabel")
+local nextImageLabel = Instance.new("ImageLabel")
+local sourceImageLabel = Instance.new("ImageLabel")
+local sourceParent = Instance.new("ImageLabel")
+local additionalFrame = Instance.new("Frame")
+local textButton = Instance.new("TextButton")
+local targetImageLabel = Instance.new("ImageLabel")
+local textLabelVariantB = Instance.new("TextLabel")
+local targetParent = Instance.new("TextButton")
+local imageLabelVariantA = Instance.new("ImageLabel")
+local button = Instance.new("TextButton")
+local parentVariantA = Instance.new("ImageLabel")
+local textLabelVariantC = Instance.new("TextLabel")
+local rShiftButton = Instance.new("TextButton")
+local imageLabelVariantB = Instance.new("ImageLabel")
+local fallbackFrame = Instance.new("Frame")
+
+ScreenGui.Name = "imgui"
+ScreenGui.Parent = game:GetService("CoreGui") or gethui()
+Frame.Name = "Prefabs"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.Size = UDim2.new(0, 100, 0, 100)
+Frame.Visible = false
+TextLabel.Name = "Label"
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Size = UDim2.new(0, 200, 0, 20)
+TextLabel.Font = Enum.Font.Garamond
+TextLabel.Text = "Hello, world 123"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextSize = 17
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+ImageLabel.Name = "Window"
+ImageLabel.Parent = Frame
+ImageLabel.Active = true
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.ClipsDescendants = true
+ImageLabel.Position = UDim2.new(0, 20, 0, 20)
+ImageLabel.Selectable = true
+ImageLabel.Size = UDim2.new(0, 200, 0, 200)
+ImageLabel.Image = "rbxassetid://2851926732"
+ImageLabel.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
+ImageLabel.ScaleType = Enum.ScaleType.Slice
+ImageLabel.SliceCenter = Rect.new(12, 12, 12, 12)
+frame.Name = "Resizer"
+frame.Parent = ImageLabel
+frame.Active = true
+frame.BackgroundColor3 = Color3.new(1, 1, 1)
+frame.BackgroundTransparency = 1
+frame.BorderSizePixel = 0
+frame.Position = UDim2.new(1, -20, 1, -20)
+frame.Size = UDim2.new(0, 20, 0, 20)
+parent.Name = "Bar"
+parent.Parent = ImageLabel
+parent.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+parent.BorderSizePixel = 0
+parent.Position = UDim2.new(0, 0, 0, 5)
+parent.Size = UDim2.new(1, 0, 0, 15)
+ImageButton.Name = "Toggle"
+ImageButton.Parent = parent
+ImageButton.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageButton.BackgroundTransparency = 1
+ImageButton.Position = UDim2.new(0, 5, 0, -2)
+ImageButton.Rotation = 90
+ImageButton.Size = UDim2.new(0, 20, 0, 20)
+ImageButton.ZIndex = 2
+ImageButton.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+imageLabel.Name = "Base"
+imageLabel.Parent = parent
+imageLabel.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+imageLabel.BorderSizePixel = 0
+imageLabel.Position = UDim2.new(0, 0, 0.800000012, 0)
+imageLabel.Size = UDim2.new(1, 0, 0, 10)
+imageLabel.Image = "rbxassetid://2851926732"
+imageLabel.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+imageLabel.ScaleType = Enum.ScaleType.Slice
+imageLabel.SliceCenter = Rect.new(12, 12, 12, 12)
+secondaryImageLabel.Name = "Top"
+secondaryImageLabel.Parent = parent
+secondaryImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+secondaryImageLabel.BackgroundTransparency = 1
+secondaryImageLabel.Position = UDim2.new(0, 0, 0, -5)
+secondaryImageLabel.Size = UDim2.new(1, 0, 0, 10)
+secondaryImageLabel.Image = "rbxassetid://2851926732"
+secondaryImageLabel.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+secondaryImageLabel.ScaleType = Enum.ScaleType.Slice
+secondaryImageLabel.SliceCenter = Rect.new(12, 12, 12, 12)
+secondaryFrame.Name = "Tabs"
+secondaryFrame.Parent = ImageLabel
+secondaryFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+secondaryFrame.BackgroundTransparency = 1
+secondaryFrame.Position = UDim2.new(0, 15, 0, 60)
+secondaryFrame.Size = UDim2.new(1, -30, 1, -60)
+textLabel.Name = "Title"
+textLabel.Parent = ImageLabel
+textLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+textLabel.BackgroundTransparency = 1
+textLabel.Position = UDim2.new(0, 30, 0, 3)
+textLabel.Size = UDim2.new(0, 200, 0, 20)
+textLabel.Font = Enum.Font.Garamond
+textLabel.Text = "Gamer Time"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.TextSize = 20
+textLabel.TextXAlignment = Enum.TextXAlignment.Left
+secondaryParent.Name = "TabSelection"
+secondaryParent.Parent = ImageLabel
+secondaryParent.BackgroundColor3 = Color3.new(1, 1, 1)
+secondaryParent.BackgroundTransparency = 1
+secondaryParent.Position = UDim2.new(0, 15, 0, 30)
+secondaryParent.Size = UDim2.new(1, -30, 0, 25)
+secondaryParent.Visible = false
+secondaryParent.Image = "rbxassetid://2851929490"
+secondaryParent.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
+secondaryParent.ScaleType = Enum.ScaleType.Slice
+secondaryParent.SliceCenter = Rect.new(4, 4, 4, 4)
+alternateParent.Name = "TabButtons"
+alternateParent.Parent = secondaryParent
+alternateParent.BackgroundColor3 = Color3.new(1, 1, 1)
+alternateParent.BackgroundTransparency = 1
+alternateParent.Size = UDim2.new(1, 0, 1, 0)
+UIListLayout.Parent = alternateParent
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 2)
+alternateFrame.Parent = secondaryParent
+alternateFrame.BackgroundColor3 = Color3.new(0.12549, 0.227451, 0.372549)
+alternateFrame.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+alternateFrame.BorderSizePixel = 0
+alternateFrame.Position = UDim2.new(0, 0, 1, 0)
+alternateFrame.Size = UDim2.new(1, 0, 0, 2)
+additionalParent.Name = "Tab"
+additionalParent.Parent = Frame
+additionalParent.BackgroundColor3 = Color3.new(1, 1, 1)
+additionalParent.BackgroundTransparency = 1
+additionalParent.Size = UDim2.new(1, 0, 1, 0)
+additionalParent.Visible = false
+uiListLayout.Parent = additionalParent
+uiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+uiListLayout.Padding = UDim.new(0, 5)
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.new(1, 1, 1)
+TextBox.BackgroundTransparency = 1
+TextBox.BorderSizePixel = 0
+TextBox.Size = UDim2.new(1, 0, 0, 20)
+TextBox.ZIndex = 2
+TextBox.Font = Enum.Font.Garamond
+TextBox.PlaceholderColor3 = Color3.new(0.698039, 0.698039, 0.698039)
+TextBox.PlaceholderText = "Input Text"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+TextBox.TextSize = 17
+alternateImageLabel.Name = "TextBox_Roundify_4px"
+alternateImageLabel.Parent = TextBox
+alternateImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+alternateImageLabel.BackgroundTransparency = 1
+alternateImageLabel.Size = UDim2.new(1, 0, 1, 0)
+alternateImageLabel.Image = "rbxassetid://2851929490"
+alternateImageLabel.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
+alternateImageLabel.ScaleType = Enum.ScaleType.Slice
+alternateImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+fallbackParent.Name = "Slider"
+fallbackParent.Parent = Frame
+fallbackParent.BackgroundColor3 = Color3.new(1, 1, 1)
+fallbackParent.BackgroundTransparency = 1
+fallbackParent.Position = UDim2.new(0, 0, 0.178571433, 0)
+fallbackParent.Size = UDim2.new(1, 0, 0, 20)
+fallbackParent.Image = "rbxassetid://2851929490"
+fallbackParent.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
+fallbackParent.ScaleType = Enum.ScaleType.Slice
+fallbackParent.SliceCenter = Rect.new(4, 4, 4, 4)
+secondaryTextLabel.Name = "Title"
+secondaryTextLabel.Parent = fallbackParent
+secondaryTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+secondaryTextLabel.BackgroundTransparency = 1
+secondaryTextLabel.Position = UDim2.new(0.5, 0, 0.5, -10)
+secondaryTextLabel.Size = UDim2.new(0, 0, 0, 20)
+secondaryTextLabel.ZIndex = 2
+secondaryTextLabel.Font = Enum.Font.Garamond
+secondaryTextLabel.Text = "Slider"
+secondaryTextLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+secondaryTextLabel.TextSize = 17
+additionalImageLabel.Name = "Indicator"
+additionalImageLabel.Parent = fallbackParent
+additionalImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+additionalImageLabel.BackgroundTransparency = 1
+additionalImageLabel.Size = UDim2.new(0, 0, 0, 20)
+additionalImageLabel.Image = "rbxassetid://2851929490"
+additionalImageLabel.ImageColor3 = Color3.new(0.254902, 0.262745, 0.278431)
+additionalImageLabel.ScaleType = Enum.ScaleType.Slice
+additionalImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+alternateTextLabel.Name = "Value"
+alternateTextLabel.Parent = fallbackParent
+alternateTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+alternateTextLabel.BackgroundTransparency = 1
+alternateTextLabel.Position = UDim2.new(1, -55, 0.5, -10)
+alternateTextLabel.Size = UDim2.new(0, 50, 0, 20)
+alternateTextLabel.Font = Enum.Font.Garamond
+alternateTextLabel.Text = "0%"
+alternateTextLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+alternateTextLabel.TextSize = 17
+additionalTextLabel.Parent = fallbackParent
+additionalTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+additionalTextLabel.BackgroundTransparency = 1
+additionalTextLabel.Position = UDim2.new(1, -20, -0.75, 0)
+additionalTextLabel.Size = UDim2.new(0, 26, 0, 50)
+additionalTextLabel.Font = Enum.Font.Garamond
+additionalTextLabel.Text = "]"
+additionalTextLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
+additionalTextLabel.TextSize = 17
+fallbackTextLabel.Parent = fallbackParent
+fallbackTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+fallbackTextLabel.BackgroundTransparency = 1
+fallbackTextLabel.Position = UDim2.new(1, -65, -0.75, 0)
+fallbackTextLabel.Size = UDim2.new(0, 26, 0, 50)
+fallbackTextLabel.Font = Enum.Font.Garamond
+fallbackTextLabel.Text = "["
+fallbackTextLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
+fallbackTextLabel.TextSize = 17
+fallbackImageLabel.Name = "Circle"
+fallbackImageLabel.Parent = Frame
+fallbackImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+fallbackImageLabel.BackgroundTransparency = 1
+fallbackImageLabel.Image = "rbxassetid://266543268"
+fallbackImageLabel.ImageTransparency = 0.5
+secondaryUiListLayout.Parent = Frame
+secondaryUiListLayout.FillDirection = Enum.FillDirection.Horizontal
+secondaryUiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+secondaryUiListLayout.Padding = UDim.new(0, 20)
+TextButton.Name = "Dropdown"
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.BackgroundTransparency = 1
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 20)
+TextButton.ZIndex = 2
+TextButton.Font = Enum.Font.Garamond
+TextButton.Text = "      Dropdown"
+TextButton.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+TextButton.TextSize = 14
+TextButton.TextXAlignment = Enum.TextXAlignment.Left
+nestedImageLabel.Name = "Indicator"
+nestedImageLabel.Parent = TextButton
+nestedImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+nestedImageLabel.BackgroundTransparency = 1
+nestedImageLabel.Position = UDim2.new(0.899999976, -10, 0.100000001, 0)
+nestedImageLabel.Rotation = -90
+nestedImageLabel.Size = UDim2.new(0, 15, 0, 15)
+nestedImageLabel.ZIndex = 2
+nestedImageLabel.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4744658743"
+imageButton.Name = "Box"
+imageButton.Parent = TextButton
+imageButton.BackgroundColor3 = Color3.new(1, 1, 1)
+imageButton.BackgroundTransparency = 1
+imageButton.Position = UDim2.new(0, 0, 0, 25)
+imageButton.Size = UDim2.new(1, 0, 0, 150)
+imageButton.ZIndex = 3
+imageButton.Image = "rbxassetid://2851929490"
+imageButton.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
+imageButton.ScaleType = Enum.ScaleType.Slice
+imageButton.SliceCenter = Rect.new(4, 4, 4, 4)
+ScrollingFrame.Name = "Objects"
+ScrollingFrame.Parent = imageButton
+ScrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+ScrollingFrame.BackgroundTransparency = 1
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame.ZIndex = 3
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+ScrollingFrame.ScrollBarThickness = 8
+alternateUiListLayout.Parent = ScrollingFrame
+alternateUiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+innerImageLabel.Name = "TextButton_Roundify_4px"
+innerImageLabel.Parent = TextButton
+innerImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+innerImageLabel.BackgroundTransparency = 1
+innerImageLabel.Size = UDim2.new(1, 0, 1, 0)
+innerImageLabel.Image = "rbxassetid://2851929490"
+innerImageLabel.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
+innerImageLabel.ScaleType = Enum.ScaleType.Slice
+innerImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+testTabButton.Name = "TabButton"
+testTabButton.Parent = Frame
+testTabButton.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+testTabButton.BackgroundTransparency = 1
+testTabButton.BorderSizePixel = 0
+testTabButton.Position = UDim2.new(0.185185179, 0, 0, 0)
+testTabButton.Size = UDim2.new(0, 71, 0, 20)
+testTabButton.ZIndex = 2
+testTabButton.Font = Enum.Font.Garamond
+testTabButton.Text = "Test tab"
+testTabButton.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+testTabButton.TextSize = 17
+outerImageLabel.Name = "TextButton_Roundify_4px"
+outerImageLabel.Parent = testTabButton
+outerImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+outerImageLabel.BackgroundTransparency = 1
+outerImageLabel.Size = UDim2.new(1, 0, 1, 0)
+outerImageLabel.Image = "rbxassetid://2851929490"
+outerImageLabel.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
+outerImageLabel.ScaleType = Enum.ScaleType.Slice
+outerImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+nestedParent.Name = "Folder"
+nestedParent.Parent = Frame
+nestedParent.BackgroundColor3 = Color3.new(1, 1, 1)
+nestedParent.BackgroundTransparency = 1
+nestedParent.Position = UDim2.new(0, 0, 0, 50)
+nestedParent.Size = UDim2.new(1, 0, 0, 20)
+nestedParent.Image = "rbxassetid://2851929490"
+nestedParent.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
+nestedParent.ScaleType = Enum.ScaleType.Slice
+nestedParent.SliceCenter = Rect.new(4, 4, 4, 4)
+folderButton.Name = "Button"
+folderButton.Parent = nestedParent
+folderButton.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+folderButton.BackgroundTransparency = 1
+folderButton.BorderSizePixel = 0
+folderButton.Size = UDim2.new(1, 0, 0, 20)
+folderButton.ZIndex = 2
+folderButton.Font = Enum.Font.Garamond
+folderButton.Text = "      Folder"
+folderButton.TextColor3 = Color3.new(1, 1, 1)
+folderButton.TextSize = 17
+folderButton.TextXAlignment = Enum.TextXAlignment.Left
+previousImageLabel.Name = "TextButton_Roundify_4px"
+previousImageLabel.Parent = folderButton
+previousImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+previousImageLabel.BackgroundTransparency = 1
+previousImageLabel.Size = UDim2.new(1, 0, 1, 0)
+previousImageLabel.Image = "rbxassetid://2851929490"
+previousImageLabel.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+previousImageLabel.ScaleType = Enum.ScaleType.Slice
+previousImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+currentImageLabel.Name = "Toggle"
+currentImageLabel.Parent = folderButton
+currentImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+currentImageLabel.BackgroundTransparency = 1
+currentImageLabel.Position = UDim2.new(0, 5, 0, 0)
+currentImageLabel.Size = UDim2.new(0, 20, 0, 20)
+currentImageLabel.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+innerParent.Name = "Objects"
+innerParent.Parent = nestedParent
+innerParent.BackgroundColor3 = Color3.new(1, 1, 1)
+innerParent.BackgroundTransparency = 1
+innerParent.Position = UDim2.new(0, 10, 0, 25)
+innerParent.Size = UDim2.new(1, -10, 1, -25)
+innerParent.Visible = false
+additionalUiListLayout.Parent = innerParent
+additionalUiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+additionalUiListLayout.Padding = UDim.new(0, 5)
+outerParent.Name = "HorizontalAlignment"
+outerParent.Parent = Frame
+outerParent.BackgroundColor3 = Color3.new(1, 1, 1)
+outerParent.BackgroundTransparency = 1
+outerParent.Size = UDim2.new(1, 0, 0, 20)
+fallbackUiListLayout.Parent = outerParent
+fallbackUiListLayout.FillDirection = Enum.FillDirection.Horizontal
+fallbackUiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+fallbackUiListLayout.Padding = UDim.new(0, 5)
+previousParent.Name = "Console"
+previousParent.Parent = Frame
+previousParent.BackgroundColor3 = Color3.new(1, 1, 1)
+previousParent.BackgroundTransparency = 1
+previousParent.Size = UDim2.new(1, 0, 0, 200)
+previousParent.Image = "rbxassetid://2851928141"
+previousParent.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
+previousParent.ScaleType = Enum.ScaleType.Slice
+previousParent.SliceCenter = Rect.new(8, 8, 8, 8)
+scrollingFrame.Parent = previousParent
+scrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.BorderSizePixel = 0
+scrollingFrame.Size = UDim2.new(1, 0, 1, 1)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollingFrame.ScrollBarThickness = 4
+textBox.Name = "Source"
+textBox.Parent = scrollingFrame
+textBox.BackgroundColor3 = Color3.new(1, 1, 1)
+textBox.BackgroundTransparency = 1
+textBox.Position = UDim2.new(0, 40, 0, 0)
+textBox.Size = UDim2.new(1, -40, 0, 10000)
+textBox.ZIndex = 3
+textBox.ClearTextOnFocus = false
+textBox.Font = Enum.Font.Code
+textBox.MultiLine = true
+textBox.PlaceholderColor3 = Color3.new(0.8, 0.8, 0.8)
+textBox.Text = ""
+textBox.TextColor3 = Color3.new(1, 1, 1)
+textBox.TextSize = 15
+textBox.TextStrokeColor3 = Color3.new(1, 1, 1)
+textBox.TextWrapped = true
+textBox.TextXAlignment = Enum.TextXAlignment.Left
+textBox.TextYAlignment = Enum.TextYAlignment.Top
+nestedTextLabel.Name = "Comments"
+nestedTextLabel.Parent = textBox
+nestedTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+nestedTextLabel.BackgroundTransparency = 1
+nestedTextLabel.Size = UDim2.new(1, 0, 1, 0)
+nestedTextLabel.ZIndex = 5
+nestedTextLabel.Font = Enum.Font.Code
+nestedTextLabel.Text = ""
+nestedTextLabel.TextColor3 = Color3.new(0.231373, 0.784314, 0.231373)
+nestedTextLabel.TextSize = 15
+nestedTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+nestedTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+innerTextLabel.Name = "Globals"
+innerTextLabel.Parent = textBox
+innerTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+innerTextLabel.BackgroundTransparency = 1
+innerTextLabel.Size = UDim2.new(1, 0, 1, 0)
+innerTextLabel.ZIndex = 5
+innerTextLabel.Font = Enum.Font.Code
+innerTextLabel.Text = ""
+innerTextLabel.TextColor3 = Color3.new(0.517647, 0.839216, 0.968628)
+innerTextLabel.TextSize = 15
+innerTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+innerTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+outerTextLabel.Name = "Keywords"
+outerTextLabel.Parent = textBox
+outerTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+outerTextLabel.BackgroundTransparency = 1
+outerTextLabel.Size = UDim2.new(1, 0, 1, 0)
+outerTextLabel.ZIndex = 5
+outerTextLabel.Font = Enum.Font.Code
+outerTextLabel.Text = ""
+outerTextLabel.TextColor3 = Color3.new(0.972549, 0.427451, 0.486275)
+outerTextLabel.TextSize = 15
+outerTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+outerTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+previousTextLabel.Name = "RemoteHighlight"
+previousTextLabel.Parent = textBox
+previousTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+previousTextLabel.BackgroundTransparency = 1
+previousTextLabel.Size = UDim2.new(1, 0, 1, 0)
+previousTextLabel.ZIndex = 5
+previousTextLabel.Font = Enum.Font.Code
+previousTextLabel.Text = ""
+previousTextLabel.TextColor3 = Color3.new(0, 0.568627, 1)
+previousTextLabel.TextSize = 15
+previousTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+previousTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+currentTextLabel.Name = "Strings"
+currentTextLabel.Parent = textBox
+currentTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+currentTextLabel.BackgroundTransparency = 1
+currentTextLabel.Size = UDim2.new(1, 0, 1, 0)
+currentTextLabel.ZIndex = 5
+currentTextLabel.Font = Enum.Font.Code
+currentTextLabel.Text = ""
+currentTextLabel.TextColor3 = Color3.new(0.678431, 0.945098, 0.584314)
+currentTextLabel.TextSize = 15
+currentTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+currentTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+nextTextLabel.Name = "Tokens"
+nextTextLabel.Parent = textBox
+nextTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+nextTextLabel.BackgroundTransparency = 1
+nextTextLabel.Size = UDim2.new(1, 0, 1, 0)
+nextTextLabel.ZIndex = 5
+nextTextLabel.Font = Enum.Font.Code
+nextTextLabel.Text = ""
+nextTextLabel.TextColor3 = Color3.new(1, 1, 1)
+nextTextLabel.TextSize = 15
+nextTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+nextTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+sourceTextLabel.Name = "Numbers"
+sourceTextLabel.Parent = textBox
+sourceTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+sourceTextLabel.BackgroundTransparency = 1
+sourceTextLabel.Size = UDim2.new(1, 0, 1, 0)
+sourceTextLabel.ZIndex = 4
+sourceTextLabel.Font = Enum.Font.Code
+sourceTextLabel.Text = ""
+sourceTextLabel.TextColor3 = Color3.new(1, 0.776471, 0)
+sourceTextLabel.TextSize = 15
+sourceTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+sourceTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+targetTextLabel.Name = "Info"
+targetTextLabel.Parent = textBox
+targetTextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+targetTextLabel.BackgroundTransparency = 1
+targetTextLabel.Size = UDim2.new(1, 0, 1, 0)
+targetTextLabel.ZIndex = 5
+targetTextLabel.Font = Enum.Font.Code
+targetTextLabel.Text = ""
+targetTextLabel.TextColor3 = Color3.new(0, 0.635294, 1)
+targetTextLabel.TextSize = 15
+targetTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+targetTextLabel.TextYAlignment = Enum.TextYAlignment.Top
+textLabelVariantA.Name = "Lines"
+textLabelVariantA.Parent = scrollingFrame
+textLabelVariantA.BackgroundColor3 = Color3.new(1, 1, 1)
+textLabelVariantA.BackgroundTransparency = 1
+textLabelVariantA.BorderSizePixel = 0
+textLabelVariantA.Size = UDim2.new(0, 40, 0, 10000)
+textLabelVariantA.ZIndex = 4
+textLabelVariantA.Font = Enum.Font.Code
+textLabelVariantA.Text = "1\n"
+textLabelVariantA.TextColor3 = Color3.new(1, 1, 1)
+textLabelVariantA.TextSize = 15
+textLabelVariantA.TextWrapped = true
+textLabelVariantA.TextYAlignment = Enum.TextYAlignment.Top
+currentParent.Name = "ColorPicker"
+currentParent.Parent = Frame
+currentParent.BackgroundColor3 = Color3.new(1, 1, 1)
+currentParent.BackgroundTransparency = 1
+currentParent.Size = UDim2.new(0, 180, 0, 110)
+currentParent.Image = "rbxassetid://2851929490"
+currentParent.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
+currentParent.ScaleType = Enum.ScaleType.Slice
+currentParent.SliceCenter = Rect.new(4, 4, 4, 4)
+nextParent.Name = "Palette"
+nextParent.Parent = currentParent
+nextParent.BackgroundColor3 = Color3.new(1, 1, 1)
+nextParent.BackgroundTransparency = 1
+nextParent.Position = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
+nextParent.Size = UDim2.new(0, 100, 0, 100)
+nextParent.Image = "rbxassetid://698052001"
+nextParent.ScaleType = Enum.ScaleType.Slice
+nextParent.SliceCenter = Rect.new(4, 4, 4, 4)
+nextImageLabel.Name = "Indicator"
+nextImageLabel.Parent = nextParent
+nextImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+nextImageLabel.BackgroundTransparency = 1
+nextImageLabel.Size = UDim2.new(0, 5, 0, 5)
+nextImageLabel.ZIndex = 2
+nextImageLabel.Image = "rbxassetid://2851926732"
+nextImageLabel.ImageColor3 = Color3.new(0, 0, 0)
+nextImageLabel.ScaleType = Enum.ScaleType.Slice
+nextImageLabel.SliceCenter = Rect.new(12, 12, 12, 12)
+sourceImageLabel.Name = "Sample"
+sourceImageLabel.Parent = currentParent
+sourceImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+sourceImageLabel.BackgroundTransparency = 1
+sourceImageLabel.Position = UDim2.new(0.800000012, 0, 0.0500000007, 0)
+sourceImageLabel.Size = UDim2.new(0, 25, 0, 25)
+sourceImageLabel.Image = "rbxassetid://2851929490"
+sourceImageLabel.ScaleType = Enum.ScaleType.Slice
+sourceImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+sourceParent.Name = "Saturation"
+sourceParent.Parent = currentParent
+sourceParent.BackgroundColor3 = Color3.new(1, 1, 1)
+sourceParent.Position = UDim2.new(0.649999976, 0, 0.0500000007, 0)
+sourceParent.Size = UDim2.new(0, 15, 0, 100)
+sourceParent.Image = "rbxassetid://3641079629"
+additionalFrame.Name = "Indicator"
+additionalFrame.Parent = sourceParent
+additionalFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+additionalFrame.BorderSizePixel = 0
+additionalFrame.Size = UDim2.new(0, 20, 0, 2)
+additionalFrame.ZIndex = 2
+textButton.Name = "Switch"
+textButton.Parent = Frame
+textButton.BackgroundColor3 = Color3.new(1, 1, 1)
+textButton.BackgroundTransparency = 1
+textButton.BorderSizePixel = 0
+textButton.Position = UDim2.new(0.229411766, 0, 0.20714286, 0)
+textButton.Size = UDim2.new(0, 20, 0, 20)
+textButton.ZIndex = 2
+textButton.Font = Enum.Font.Garamond
+textButton.Text = ""
+textButton.TextColor3 = Color3.new(1, 1, 1)
+textButton.TextSize = 18
+targetImageLabel.Name = "TextButton_Roundify_4px"
+targetImageLabel.Parent = textButton
+targetImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+targetImageLabel.BackgroundTransparency = 1
+targetImageLabel.Size = UDim2.new(1, 0, 1, 0)
+targetImageLabel.Image = "rbxassetid://2851929490"
+targetImageLabel.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+targetImageLabel.ImageTransparency = 0.5
+targetImageLabel.ScaleType = Enum.ScaleType.Slice
+targetImageLabel.SliceCenter = Rect.new(4, 4, 4, 4)
+textLabelVariantB.Name = "Title"
+textLabelVariantB.Parent = textButton
+textLabelVariantB.BackgroundColor3 = Color3.new(1, 1, 1)
+textLabelVariantB.BackgroundTransparency = 1
+textLabelVariantB.Position = UDim2.new(1.20000005, 0, 0, 0)
+textLabelVariantB.Size = UDim2.new(0, 20, 0, 20)
+textLabelVariantB.Font = Enum.Font.Garamond
+textLabelVariantB.Text = "Switch"
+textLabelVariantB.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+textLabelVariantB.TextSize = 17
+textLabelVariantB.TextXAlignment = Enum.TextXAlignment.Left
+targetParent.Name = "Button"
+targetParent.Parent = Frame
+targetParent.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+targetParent.BackgroundTransparency = 1
+targetParent.BorderSizePixel = 0
+targetParent.Size = UDim2.new(0, 91, 0, 20)
+targetParent.ZIndex = 2
+targetParent.Font = Enum.Font.Garamond
+targetParent.TextColor3 = Color3.new(1, 1, 1)
+targetParent.TextSize = 17
+imageLabelVariantA.Name = "TextButton_Roundify_4px"
+imageLabelVariantA.Parent = targetParent
+imageLabelVariantA.BackgroundColor3 = Color3.new(1, 1, 1)
+imageLabelVariantA.BackgroundTransparency = 1
+imageLabelVariantA.Size = UDim2.new(1, 0, 1, 0)
+imageLabelVariantA.Image = "rbxassetid://2851929490"
+imageLabelVariantA.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+imageLabelVariantA.ScaleType = Enum.ScaleType.Slice
+imageLabelVariantA.SliceCenter = Rect.new(4, 4, 4, 4)
+button.Name = "DropdownButton"
+button.Parent = Frame
+button.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
+button.BorderSizePixel = 0
+button.Size = UDim2.new(1, 0, 0, 20)
+button.ZIndex = 3
+button.Font = Enum.Font.Garamond
+button.Text = "      Button"
+button.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+button.TextSize = 17
+button.TextXAlignment = Enum.TextXAlignment.Left
+parentVariantA.Name = "Keybind"
+parentVariantA.Parent = Frame
+parentVariantA.BackgroundColor3 = Color3.new(1, 1, 1)
+parentVariantA.BackgroundTransparency = 1
+parentVariantA.Size = UDim2.new(0, 200, 0, 20)
+parentVariantA.Image = "rbxassetid://2851929490"
+parentVariantA.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
+parentVariantA.ScaleType = Enum.ScaleType.Slice
+parentVariantA.SliceCenter = Rect.new(4, 4, 4, 4)
+textLabelVariantC.Name = "Title"
+textLabelVariantC.Parent = parentVariantA
+textLabelVariantC.BackgroundColor3 = Color3.new(1, 1, 1)
+textLabelVariantC.BackgroundTransparency = 1
+textLabelVariantC.Size = UDim2.new(0, 0, 1, 0)
+textLabelVariantC.Font = Enum.Font.Garamond
+textLabelVariantC.Text = "Keybind"
+textLabelVariantC.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+textLabelVariantC.TextSize = 17
+textLabelVariantC.TextXAlignment = Enum.TextXAlignment.Left
+rShiftButton.Name = "Input"
+rShiftButton.Parent = parentVariantA
+rShiftButton.BackgroundColor3 = Color3.new(1, 1, 1)
+rShiftButton.BackgroundTransparency = 1
+rShiftButton.BorderSizePixel = 0
+rShiftButton.Position = UDim2.new(1, -85, 0, 2)
+rShiftButton.Size = UDim2.new(0, 80, 1, -4)
+rShiftButton.ZIndex = 2
+rShiftButton.Font = Enum.Font.Garamond
+rShiftButton.Text = "RShift"
+rShiftButton.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+rShiftButton.TextSize = 12
+rShiftButton.TextWrapped = true
+imageLabelVariantB.Name = "Input_Roundify_4px"
+imageLabelVariantB.Parent = rShiftButton
+imageLabelVariantB.BackgroundColor3 = Color3.new(1, 1, 1)
+imageLabelVariantB.BackgroundTransparency = 1
+imageLabelVariantB.Size = UDim2.new(1, 0, 1, 0)
+imageLabelVariantB.Image = "rbxassetid://2851929490"
+imageLabelVariantB.ImageColor3 = Color3.new(0.290196, 0.294118, 0.313726)
+imageLabelVariantB.ScaleType = Enum.ScaleType.Slice
+imageLabelVariantB.SliceCenter = Rect.new(4, 4, 4, 4)
+fallbackFrame.Name = "Windows"
+fallbackFrame.Parent = ScreenGui
+fallbackFrame.BackgroundColor3 = Color3.new(1, 1, 1)
+fallbackFrame.BackgroundTransparency = 1
+fallbackFrame.Position = UDim2.new(0, 20, 0, 20)
+fallbackFrame.Size = UDim2.new(1, 20, 1, -20)
+script.Parent = ScreenGui
+
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+local Prefabs = script.Parent:WaitForChild("Prefabs")
+local Windows = script.Parent:FindFirstChild("Windows")
+local bindingData = {
+	binding = false
+}
+
+UserInputService.InputBegan:Connect(function(input, _)
+	if input.KeyCode == (typeof(flagData.toggle_key) == "EnumItem" and flagData.toggle_key or Enum.KeyCode.RightShift) and script.Parent and not bindingData.binding then
+		script.Parent.Enabled = not script.Parent.Enabled
+	end
+end)
+
+local function handleInstanceProperties(item, secondaryArgument, tweenInfoNumber)
+	if not tweenInfoNumber then
+		tweenInfoNumber = 0.5
+	end
+
+	local tweenInfo = TweenInfo.new(tweenInfoNumber, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+	TweenService:Create(item, tweenInfo, secondaryArgument):Play()
+end
+local function handleResult(quotientNumber, secondaryQuotientNumber, alternateQuotientNumber)
+	local quotient = quotientNumber / 255
+	local resultNumber = secondaryQuotientNumber / 255
+	local number = alternateQuotientNumber / 255
+	local optionNumber = math.max(quotient, resultNumber, number)
+	local differenceNumber = math.min(quotient, resultNumber, number)
+	local sum = nil
+	local difference = optionNumber - differenceNumber
+	local resultOption = optionNumber == 0 and 0 or difference / optionNumber
+	local secondaryResultNumber
+
+	if optionNumber ~= differenceNumber then
+		if optionNumber ~= quotient then
+			if optionNumber ~= resultNumber then
+				if optionNumber == number then
+					sum = (quotient - resultNumber) / difference + 4
+				end
+			else
+				sum = (number - quotient) / difference + 2
+			end
+		else
+			sum = (resultNumber - number) / difference
+
+			if resultNumber < number then
+				sum = sum + 6
+			end
+		end
+
+		secondaryResultNumber = sum / 6
+	else
+		secondaryResultNumber = 0
+	end
+
+	return secondaryResultNumber, resultOption, optionNumber
+end
+local function handler(item, displayValue)
+	local ok, result = pcall(function()
+		return item[tostring(displayValue)]
+	end)
+
+	if not ok then
+		return
+	end
+
+	return result
+end
+local function handleSize(clone)
+	return clone.TextBounds.X + 15
+end
+local function new()
+	return Vector2.new(UserInputService:GetMouseLocation().X + 1, UserInputService:GetMouseLocation().Y - 35)
+end
+local function updateInstanceProperties(parent, differenceNumber, secondaryInstancePropertiesNumber)
+	spawn(function()
+		parent.ClipsDescendants = true
+
+		local clone = Prefabs:FindFirstChild("Circle"):Clone()
+
+		clone.Parent = parent
+		clone.ZIndex = 1000
+
+		local updateInstancePropertiesNumber = differenceNumber - clone.AbsolutePosition.X
+		local difference = secondaryInstancePropertiesNumber - clone.AbsolutePosition.Y
+
+		clone.Position = UDim2.new(0, updateInstancePropertiesNumber, 0, difference)
+
+		local number = 0
+
+		if not (parent.AbsoluteSize.X > parent.AbsoluteSize.Y) then
+			if not (parent.AbsoluteSize.X < parent.AbsoluteSize.Y) then
+				if parent.AbsoluteSize.X == parent.AbsoluteSize.Y then
+					number = parent.AbsoluteSize.X * 1.5
+				end
+			else
+				number = parent.AbsoluteSize.Y * 1.5
+			end
+		else
+			number = parent.AbsoluteSize.X * 1.5
+		end
+
+		clone:TweenSizeAndPosition(UDim2.new(0, number, 0, number), UDim2.new(0.5, -number / 2, 0.5, -number / 2), "Out", "Quad", 0.5, false, nil)
+		handleInstanceProperties(clone, {
+			ImageTransparency = 1
+		}, 0.5)
+		wait(0.5)
+		clone:Destroy()
+	end)
+end
+
+local sum = 0
+local data = {}
+
+local function updatePosition()
+	local clone = Prefabs:FindFirstChild("UIListLayout"):Clone()
+
+	clone.Parent = Windows
+
+	local updatePositionData = {}
+
+	for _, item in next, Windows:GetChildren() do
+		if not item:IsA("UIListLayout") then
+			updatePositionData[item] = item.AbsolutePosition
+		end
+	end
+
+	clone:Destroy()
+
+	for k, item in next, updatePositionData do
+		k.Position = UDim2.new(0, item.X, 0, item.Y)
+	end
+end
+
+function data.FormatWindows(_)
+	updatePosition()
+end
+function data.AddWindow(_, textFlag, capturedFlagData)
+	sum = sum + 1
+
+	local updateInstancePropertiesFlag = false
+	local text = tostring(textFlag or "New Window")
+
+	if typeof(capturedFlagData) ~= "table" or not capturedFlagData then
+		capturedFlagData = flagData
+	end
+
+	capturedFlagData.tween_time = 0.1
+
+	local clone = Prefabs:FindFirstChild("Window"):Clone()
+
+	clone.Parent = Windows
+	clone:FindFirstChild("Title").Text = text
+	clone.Size = UDim2.new(0, capturedFlagData.min_size.X, 0, capturedFlagData.min_size.Y)
+	clone.ZIndex = clone.ZIndex + sum * 10
+	clone:FindFirstChild("Title")
+
+	local Bar = clone:FindFirstChild("Bar")
+	local Base = Bar:FindFirstChild("Base")
+	local Top = Bar:FindFirstChild("Top")
+	local frame = clone:FindFirstChild("TabSelection"):FindFirstChild("Frame")
+
+	Bar:FindFirstChild("Toggle")
+	spawn(function()
+		while true do
+			Bar.BackgroundColor3 = capturedFlagData.main_color
+			Base.BackgroundColor3 = capturedFlagData.main_color
+			Base.ImageColor3 = capturedFlagData.main_color
+			Top.ImageColor3 = capturedFlagData.main_color
+			frame.BackgroundColor3 = capturedFlagData.main_color
+			RunService.Heartbeat:Wait()
+		end
+	end)
+
+	local Resizer = clone:WaitForChild("Resizer")
+	local data = {}
+
+	clone.Draggable = true
+
+	local Icon = Mouse.Icon
+	local flag = false
+
+	Resizer.MouseEnter:Connect(function()
+		clone.Draggable = false
+
+		if capturedFlagData.can_resize then
+			Icon = Mouse.Icon
+		end
+
+		flag = true
+	end)
+	Resizer.MouseLeave:Connect(function()
+		flag = false
+
+		if capturedFlagData.can_resize then
+			Mouse.Icon = Icon
+		end
+
+		clone.Draggable = true
+	end)
+
+	local secondaryFlag = false
+
+	UserInputService.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			secondaryFlag = true
+			spawn(function()
+				if flag and Resizer.Active and capturedFlagData.can_resize then
+					while secondaryFlag and Resizer.Active do
+						local vector = new()
+						local difference = vector.X - clone.AbsolutePosition.X
+						local number = vector.Y - clone.AbsolutePosition.Y
+
+						if not (difference >= capturedFlagData.min_size.X) or not (number >= capturedFlagData.min_size.Y) then
+							if not (difference >= capturedFlagData.min_size.X) then
+								if not (number >= capturedFlagData.min_size.Y) then
+									handleInstanceProperties(clone, {
+										Size = UDim2.new(0, capturedFlagData.min_size.X, 0, capturedFlagData.min_size.Y)
+									}, capturedFlagData.tween_time)
+								else
+									handleInstanceProperties(clone, {
+										Size = UDim2.new(0, capturedFlagData.min_size.X, 0, number)
+									}, capturedFlagData.tween_time)
+								end
+							else
+								handleInstanceProperties(clone, {
+									Size = UDim2.new(0, difference, 0, capturedFlagData.min_size.Y)
+								}, capturedFlagData.tween_time)
+							end
+						else
+							handleInstanceProperties(clone, {
+								Size = UDim2.new(0, difference, 0, number)
+							}, capturedFlagData.tween_time)
+						end
+
+						RunService.Heartbeat:Wait()
+					end
+				end
+			end)
+		end
+	end)
+	UserInputService.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			secondaryFlag = false
+		end
+	end)
+
+	local Toggle = clone:FindFirstChild("Bar"):FindFirstChild("Toggle")
+	local alternateFlag = true
+	local additionalFlag = true
+	local vData = {}
+	local AbsoluteSizeY = clone.AbsoluteSize.Y
+
+	Toggle.MouseButton1Click:Connect(function()
+		if additionalFlag then
+			additionalFlag = false
+
+			if not alternateFlag then
+				for k, visible in next, vData do
+					k.Visible = visible
+				end
+
+				Resizer.Active = true
+				handleInstanceProperties(Toggle, {
+					Rotation = 90
+				}, capturedFlagData.tween_time)
+				handleInstanceProperties(clone, {
+					Size = UDim2.new(0, clone.AbsoluteSize.X, 0, AbsoluteSizeY)
+				}, capturedFlagData.tween_time)
+				Toggle.Parent:FindFirstChild("Base").Transparency = 0
+			else
+				vData = {}
+
+				for _, item in next, clone:FindFirstChild("Tabs"):GetChildren() do
+					vData[item] = item.Visible
+					item.Visible = false
+				end
+
+				Resizer.Active = false
+				AbsoluteSizeY = clone.AbsoluteSize.Y
+				handleInstanceProperties(Toggle, {
+					Rotation = 0
+				}, capturedFlagData.tween_time)
+				handleInstanceProperties(clone, {
+					Size = UDim2.new(0, clone.AbsoluteSize.X, 0, 26)
+				}, capturedFlagData.tween_time)
+				Toggle.Parent:FindFirstChild("Base").Transparency = 1
+			end
+
+			alternateFlag = not alternateFlag
+			wait(capturedFlagData.tween_time)
+			additionalFlag = true
+		end
+	end)
+
+	local Tabs = clone:FindFirstChild("Tabs")
+	local TabSelection = clone:FindFirstChild("TabSelection")
+	local TabButtons = TabSelection:FindFirstChild("TabButtons")
+
+	function data.AddTab(_, textFlag)
+		local data = {}
+		local text = tostring(textFlag or "New Tab")
+
+		TabSelection.Visible = true
+
+		local guiObject = Prefabs:FindFirstChild("TabButton"):Clone()
+
+		guiObject.Parent = TabButtons
+		guiObject.Text = text
+		guiObject.Size = UDim2.new(0, handleSize(guiObject), 0, 20)
+		guiObject.ZIndex = guiObject.ZIndex + sum * 10
+		guiObject:GetChildren()[1].ZIndex = guiObject:GetChildren()[1].ZIndex + sum * 10
+
+		local parent = Prefabs:FindFirstChild("Tab"):Clone()
+
+		parent.Parent = Tabs
+		parent.ZIndex = parent.ZIndex + sum * 10
+
+		local function secondaryUpdateInstanceProperties()
+			if not updateInstancePropertiesFlag then
+				for _, item in next, TabButtons:GetChildren() do
+					if not item:IsA("UIListLayout") then
+						item:GetChildren()[1].ImageColor3 = Color3.fromRGB(52, 53, 56)
+						handleInstanceProperties(item, {
+							Size = UDim2.new(0, item.AbsoluteSize.X, 0, 20)
+						}, capturedFlagData.tween_time)
+					end
+				end
+
+				for _, item in next, Tabs:GetChildren() do
+					item.Visible = false
+				end
+
+				handleInstanceProperties(guiObject, {
+					Size = UDim2.new(0, guiObject.AbsoluteSize.X, 0, 25)
+				}, capturedFlagData.tween_time)
+				guiObject:GetChildren()[1].ImageColor3 = Color3.fromRGB(73, 75, 79)
+				parent.Visible = true
+
+				return
+			end
+		end
+
+		guiObject.MouseButton1Click:Connect(function()
+			secondaryUpdateInstanceProperties()
+		end)
+
+		function data.Show(_)
+			secondaryUpdateInstanceProperties()
+		end
+		function data.AddLabel(_, textFlag)
+			local text = tostring(textFlag or "New Label")
+			local secondaryClone = Prefabs:FindFirstChild("Label"):Clone()
+
+			secondaryClone.Parent = parent
+			secondaryClone.Text = text
+			secondaryClone.Size = UDim2.new(0, handleSize(secondaryClone), 0, 20)
+			secondaryClone.ZIndex = secondaryClone.ZIndex + sum * 10
+
+			return secondaryClone
+		end
+		function data.AddButton(_, textFlag, flag)
+			local text = tostring(textFlag or "New Button")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			local secondaryParent = Prefabs:FindFirstChild("Button"):Clone()
+
+			secondaryParent.Parent = parent
+			secondaryParent.Text = text
+			secondaryParent.Size = UDim2.new(0, handleSize(secondaryParent), 0, 20)
+			secondaryParent.ZIndex = secondaryParent.ZIndex + sum * 10
+			secondaryParent:GetChildren()[1].ZIndex = secondaryParent:GetChildren()[1].ZIndex + sum * 10
+			spawn(function()
+				while true do
+					if secondaryParent and secondaryParent:GetChildren()[1] then
+						secondaryParent:GetChildren()[1].ImageColor3 = capturedFlagData.main_color
+					end
+
+					RunService.Heartbeat:Wait()
+				end
+			end)
+			secondaryParent.MouseButton1Click:Connect(function()
+				updateInstanceProperties(secondaryParent, Mouse.X, Mouse.Y)
+				pcall(flag)
+			end)
+
+			return secondaryParent
+		end
+		function data.AddSwitch(_, textFlag, flag)
+			local data = {}
+			local text = tostring(textFlag or "New Switch")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			local titleContainer = Prefabs:FindFirstChild("Switch"):Clone()
+
+			titleContainer.Parent = parent
+			titleContainer:FindFirstChild("Title").Text = text
+			titleContainer:FindFirstChild("Title").ZIndex = titleContainer:FindFirstChild("Title").ZIndex + sum * 10
+			titleContainer.ZIndex = titleContainer.ZIndex + sum * 10
+			titleContainer:GetChildren()[1].ZIndex = titleContainer:GetChildren()[1].ZIndex + sum * 10
+			spawn(function()
+				while true do
+					if titleContainer and titleContainer:GetChildren()[1] then
+						titleContainer:GetChildren()[1].ImageColor3 = capturedFlagData.main_color
+					end
+
+					RunService.Heartbeat:Wait()
+				end
+			end)
+
+			local secondaryFlag = false
+
+			titleContainer.MouseButton1Click:Connect(function()
+				secondaryFlag = not secondaryFlag
+				titleContainer.Text = secondaryFlag and utf8.char(10003) or ""
+				pcall(flag, secondaryFlag)
+			end)
+
+			function data.Set(_, alternateFlag)
+				secondaryFlag = typeof(alternateFlag) == "boolean" and (alternateFlag or false)
+				titleContainer.Text = secondaryFlag and utf8.char(10003) or ""
+				pcall(flag, secondaryFlag)
+			end
+
+			return data, titleContainer
+		end
+		function data.AddTextBox(_, placeholderTextFlag, flag, data)
+			local placeholderText = tostring(placeholderTextFlag or "New TextBox")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			if typeof(data) ~= "table" or not data then
+				data = {
+					clear = true
+				}
+			end
+
+			local clearData = {
+				clear = data.clear == true
+			}
+			local secondaryClone = Prefabs:FindFirstChild("TextBox"):Clone()
+
+			secondaryClone.Parent = parent
+			secondaryClone.PlaceholderText = placeholderText
+			secondaryClone.ZIndex = secondaryClone.ZIndex + sum * 10
+			secondaryClone:GetChildren()[1].ZIndex = secondaryClone:GetChildren()[1].ZIndex + sum * 10
+			secondaryClone.FocusLost:Connect(function(enterPressed)
+				if enterPressed and #secondaryClone.Text > 0 then
+					pcall(flag, secondaryClone.Text)
+
+					if clearData.clear then
+						secondaryClone.Text = ""
+					end
+				end
+			end)
+
+			return secondaryClone
+		end
+		function data.AddSlider(_, titleTextFlag, flag, data)
+			local setData = {}
+			local titleText = tostring(titleTextFlag or "New Slider")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			if typeof(data) ~= "table" or not data then
+				data = {}
+			end
+
+			local maxData = {
+				min = data.min or 0,
+				max = data.max or 100,
+				readonly = data.readonly or false
+			}
+			local titleContainer = Prefabs:FindFirstChild("Slider"):Clone()
+
+			titleContainer.Parent = parent
+			titleContainer.ZIndex = titleContainer.ZIndex + sum * 10
+
+			local Title = titleContainer:FindFirstChild("Title")
+			local Indicator = titleContainer:FindFirstChild("Indicator")
+			local Value = titleContainer:FindFirstChild("Value")
+
+			Title.ZIndex = Title.ZIndex + sum * 10
+			Indicator.ZIndex = Indicator.ZIndex + sum * 10
+			Value.ZIndex = Value.ZIndex + sum * 10
+			Title.Text = titleText
+
+			local secondaryFlag = false
+
+			titleContainer.MouseEnter:Connect(function()
+				secondaryFlag = true
+				clone.Draggable = false
+			end)
+			titleContainer.MouseLeave:Connect(function()
+				secondaryFlag = false
+				clone.Draggable = true
+			end)
+
+			local alternateFlag = false
+
+			UserInputService.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					alternateFlag = true
+					spawn(function()
+						if secondaryFlag and not maxData.readonly then
+							while alternateFlag and not updateInstancePropertiesFlag do
+								local vector = new()
+								local quotient = (titleContainer.AbsoluteSize.X - (titleContainer.AbsoluteSize.X - (vector.X - titleContainer.AbsolutePosition.X) + 1)) / titleContainer.AbsoluteSize.X
+								local flagNumber = 0
+								local number = 1
+								local secondaryFlagNumber = flagNumber
+
+								if not (flagNumber <= quotient) or not (quotient <= number) then
+									if not (quotient < flagNumber) then
+										if number < quotient then
+											secondaryFlagNumber = number
+										end
+									else
+										secondaryFlagNumber = flagNumber
+									end
+								else
+									secondaryFlagNumber = quotient
+								end
+
+								handleInstanceProperties(Indicator, {
+									Size = UDim2.new(secondaryFlagNumber or flagNumber, 0, 0, 20)
+								}, capturedFlagData.tween_time)
+
+								local secondaryNumber = math.floor((secondaryFlagNumber or flagNumber) * 100)
+								local max = maxData.max
+								local min = maxData.min
+								local difference = max - min
+								local valueTextNumber = math.floor(difference / 100 * secondaryNumber + min)
+
+								Value.Text = tostring(valueTextNumber)
+								pcall(flag, valueTextNumber)
+								RunService.Heartbeat:Wait()
+							end
+						end
+					end)
+				end
+			end)
+			UserInputService.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					alternateFlag = false
+				end
+			end)
+
+			function setData.Set(_, numberText)
+				local quotientOption = tonumber(numberText) or 0
+				local quotient = (quotientOption >= 0 and (quotientOption <= 100 and quotientOption)) / 100
+
+				handleInstanceProperties(Indicator, {
+					Size = UDim2.new(quotient or 0, 0, 0, 20)
+				}, capturedFlagData.tween_time)
+
+				local number = math.floor((quotient or 0) * 100)
+				local max = maxData.max
+				local min = maxData.min
+				local difference = max - min
+				local valueTextNumber = math.floor(difference / 100 * number + min)
+
+				Value.Text = tostring(valueTextNumber)
+				pcall(flag, valueTextNumber)
+			end
+
+			setData:Set(maxData.min)
+
+			return setData, titleContainer
+		end
+		function data.AddKeybind(_, textFlag, flag, data)
+			local setKeybindData = {}
+			local text = tostring(textFlag or "New Keybind")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			if typeof(data) ~= "table" or not data then
+				data = {}
+			end
+
+			local standardData = {
+				standard = data.standard or Enum.KeyCode.RightShift
+			}
+			local inputContainer = Prefabs:FindFirstChild("Keybind"):Clone()
+			local Input = inputContainer:FindFirstChild("Input")
+			local Title = inputContainer:FindFirstChild("Title")
+
+			inputContainer.ZIndex = inputContainer.ZIndex + sum * 10
+			Input.ZIndex = Input.ZIndex + sum * 10
+			Input:GetChildren()[1].ZIndex = Input:GetChildren()[1].ZIndex + sum * 10
+			Title.ZIndex = Title.ZIndex + sum * 10
+			inputContainer.Parent = parent
+			Title.Text = "  " .. text
+			inputContainer.Size = UDim2.new(0, handleSize(Title) + 80, 0, 20)
+
+			local inputTextData = {
+				RightControl = "RightCtrl",
+				LeftControl = "LeftCtrl",
+				LeftShift = "LShift",
+				RightShift = "RShift",
+				MouseButton1 = "Mouse1",
+				MouseButton2 = "Mouse2"
+			}
+			local standard = standardData.standard
+
+			function setKeybindData.SetKeybind(_, secondaryStandard)
+				Input.Text = inputTextData[secondaryStandard.Name] or secondaryStandard.Name
+				standard = secondaryStandard
+			end
+
+			UserInputService.InputBegan:Connect(function(input, gameProcessed)
+				if not bindingData.binding then
+					if input.KeyCode == standard and not gameProcessed then
+						pcall(flag, standard)
+					end
+
+					return
+				end
+
+				spawn(function()
+					wait()
+					bindingData.binding = false
+				end)
+			end)
+			setKeybindData:SetKeybind(standardData.standard)
+			Input.MouseButton1Click:Connect(function()
+				if not bindingData.binding then
+					Input.Text = "..."
+					bindingData.binding = true
+
+					local input, _ = UserInputService.InputBegan:Wait()
+
+					setKeybindData:SetKeybind(input.KeyCode)
+
+					return
+				end
+			end)
+
+			return setKeybindData, standard
+		end
+		function data.AddDropdown(_, textFlag, flag)
+			local data = {}
+			local text = tostring(textFlag or "New Dropdown")
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			local boxContainer = Prefabs:FindFirstChild("Dropdown"):Clone()
+			local Box = boxContainer:FindFirstChild("Box")
+			local Objects = Box:FindFirstChild("Objects")
+			local Indicator = boxContainer:FindFirstChild("Indicator")
+
+			boxContainer.ZIndex = boxContainer.ZIndex + sum * 10
+			Box.ZIndex = Box.ZIndex + sum * 10
+			Objects.ZIndex = Objects.ZIndex + sum * 10
+			Indicator.ZIndex = Indicator.ZIndex + sum * 10
+			boxContainer:GetChildren()[3].ZIndex = boxContainer:GetChildren()[3].ZIndex + sum * 10
+			boxContainer.Parent = parent
+			boxContainer.Text = "      " .. text
+			Box.Size = UDim2.new(1, 0, 0, 0)
+
+			local secondaryFlag = false
+
+			boxContainer.MouseButton1Click:Connect(function()
+				secondaryFlag = not secondaryFlag
+
+				local number = (#Objects:GetChildren() - 1) * 20
+
+				if #Objects:GetChildren() - 1 >= 10 then
+					number = 200
+					Objects.CanvasSize = UDim2.new(0, 0, (#Objects:GetChildren() - 1) * 0.1, 0)
+				end
+
+				if not secondaryFlag then
+					updateInstancePropertiesFlag = false
+					handleInstanceProperties(Box, {
+						Size = UDim2.new(1, 0, 0, 0)
+					}, capturedFlagData.tween_time)
+					handleInstanceProperties(Indicator, {
+						Rotation = -90
+					}, capturedFlagData.tween_time)
+				else
+					if updateInstancePropertiesFlag then
+						return
+					end
+
+					updateInstancePropertiesFlag = true
+					handleInstanceProperties(Box, {
+						Size = UDim2.new(1, 0, 0, number)
+					}, capturedFlagData.tween_time)
+					handleInstanceProperties(Indicator, {
+						Rotation = 90
+					}, capturedFlagData.tween_time)
+				end
+			end)
+
+			function data.Add(_, clone11TextFlag)
+				local data = {}
+				local clone11Text = tostring(clone11TextFlag or "New Object")
+				local guiObject = Prefabs:FindFirstChild("DropdownButton"):Clone()
+
+				guiObject.Parent = Objects
+				guiObject.Text = clone11Text
+				guiObject.ZIndex = guiObject.ZIndex + sum * 10
+				guiObject.MouseEnter:Connect(function()
+					guiObject.BackgroundColor3 = capturedFlagData.main_color
+				end)
+				guiObject.MouseLeave:Connect(function()
+					guiObject.BackgroundColor3 = Color3.fromRGB(33, 34, 36)
+				end)
+
+				if secondaryFlag then
+					local number = (#Objects:GetChildren() - 1) * 20
+
+					if #Objects:GetChildren() - 1 >= 10 then
+						number = 200
+						Objects.CanvasSize = UDim2.new(0, 0, (#Objects:GetChildren() - 1) * 0.1, 0)
+					end
+
+					handleInstanceProperties(Box, {
+						Size = UDim2.new(1, 0, 0, number)
+					}, capturedFlagData.tween_time)
+				end
+
+				guiObject.MouseButton1Click:Connect(function()
+					if updateInstancePropertiesFlag then
+						boxContainer.Text = "      [ " .. clone11Text .. " ]"
+						updateInstancePropertiesFlag = false
+						secondaryFlag = false
+						handleInstanceProperties(Box, {
+							Size = UDim2.new(1, 0, 0, 0)
+						}, capturedFlagData.tween_time)
+						handleInstanceProperties(Indicator, {
+							Rotation = -90
+						}, capturedFlagData.tween_time)
+						pcall(flag, clone11Text)
+					end
+				end)
+
+				function data.Remove(_)
+					guiObject:Destroy()
+				end
+
+				return guiObject, data
+			end
+
+			return data, boxContainer
+		end
+		function data.AddColorPicker(_, flag)
+			local data = {}
+
+			if typeof(flag) ~= "function" or not flag then
+				function flag()
+				end
+			end
+
+			local sampleContainer = Prefabs:FindFirstChild("ColorPicker"):Clone()
+
+			sampleContainer.Parent = parent
+			sampleContainer.ZIndex = sampleContainer.ZIndex + sum * 10
+
+			local Palette = sampleContainer:FindFirstChild("Palette")
+			local Sample = sampleContainer:FindFirstChild("Sample")
+			local Saturation = sampleContainer:FindFirstChild("Saturation")
+
+			Palette.ZIndex = Palette.ZIndex + sum * 10
+			Sample.ZIndex = Sample.ZIndex + sum * 10
+			Saturation.ZIndex = Saturation.ZIndex + sum * 10
+
+			local number = 0
+			local quotient = 1
+			local secondaryNumber = 1
+
+			local function updateImageColor3()
+				local imageColor3 = Color3.fromHSV(number, quotient, secondaryNumber)
+
+				Sample.ImageColor3 = imageColor3
+				Saturation.ImageColor3 = Color3.fromHSV(number, 1, 1)
+				pcall(flag, imageColor3)
+			end
+
+			Sample.ImageColor3 = Color3.fromHSV(number, quotient, secondaryNumber)
+			Saturation.ImageColor3 = Color3.fromHSV(number, 1, 1)
+
+			local secondaryFlag = false
+			local alternateFlag = false
+
+			Palette.MouseEnter:Connect(function()
+				clone.Draggable = false
+				secondaryFlag = true
+			end)
+			Palette.MouseLeave:Connect(function()
+				clone.Draggable = true
+				secondaryFlag = false
+			end)
+			Saturation.MouseEnter:Connect(function()
+				clone.Draggable = false
+				alternateFlag = true
+			end)
+			Saturation.MouseLeave:Connect(function()
+				clone.Draggable = true
+				alternateFlag = false
+			end)
+
+			local Indicator = Palette:FindFirstChild("Indicator")
+			local indicator = Saturation:FindFirstChild("Indicator")
+
+			Indicator.ZIndex = Indicator.ZIndex + sum * 10
+			indicator.ZIndex = indicator.ZIndex + sum * 10
+
+			local additionalFlag = false
+
+			UserInputService.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					additionalFlag = true
+					spawn(function()
+						while additionalFlag and secondaryFlag and not updateInstancePropertiesFlag do
+							local vector = new()
+							local sum = Palette.AbsoluteSize.X - (vector.X - Palette.AbsolutePosition.X) + 1
+							local secondarySum = Palette.AbsoluteSize.Y - (vector.Y - Palette.AbsolutePosition.Y) + 1.5
+
+							Color3.fromHSV(sum / 100, secondarySum / 100, 0)
+							number = sum / 100
+							quotient = secondarySum / 100
+							handleInstanceProperties(Indicator, {
+								Position = UDim2.new(0, math.abs(sum - 100) - Indicator.AbsoluteSize.X / 2, 0, math.abs(secondarySum - 100) - Indicator.AbsoluteSize.Y / 2)
+							}, capturedFlagData.tween_time)
+							updateImageColor3()
+							RunService.Heartbeat:Wait()
+						end
+
+						while additionalFlag and alternateFlag and not updateInstancePropertiesFlag do
+							local vector = new()
+							local sum = Palette.AbsoluteSize.Y - (vector.Y - Palette.AbsolutePosition.Y) + 1.5
+
+							secondaryNumber = sum / 100
+							handleInstanceProperties(indicator, {
+								Position = UDim2.new(0, 0, 0, math.abs(sum - 100))
+							}, capturedFlagData.tween_time)
+							updateImageColor3()
+							RunService.Heartbeat:Wait()
+						end
+					end)
+				end
+			end)
+			UserInputService.InputEnded:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					additionalFlag = false
+				end
+			end)
+
+			function data.Set(_, imageColor3)
+				if typeof(imageColor3) ~= "Color3" or not imageColor3 then
+					imageColor3 = Color3.new(1, 1, 1)
+				end
+
+				local result, _, _ = handleResult(imageColor3.r * 255, imageColor3.g * 255, imageColor3.b * 255)
+
+				Sample.ImageColor3 = imageColor3
+				Saturation.ImageColor3 = Color3.fromHSV(result, 1, 1)
+				pcall(flag, imageColor3)
+			end
+
+			return data, sampleContainer
+		end
+		function data.AddConsole(_, data)
+			local getData = {}
+
+			if typeof(data) ~= "table" or not data then
+				data = {
+					readonly = true,
+					full = false
+				}
+			end
+
+			local sizeData = {
+				y = tonumber(data.y) or 200,
+				source = data.source or "Logs",
+				readonly = data.readonly == true,
+				full = data.full == true
+			}
+			local secondaryClone = Prefabs:FindFirstChild("Console"):Clone()
+
+			secondaryClone.Parent = parent
+			secondaryClone.ZIndex = secondaryClone.ZIndex + sum * 10
+			secondaryClone.Size = UDim2.new(1, 0, sizeData.full and 1 or 0, sizeData.y)
+
+			local linesContainer = secondaryClone:GetChildren()[1]
+			local Source = linesContainer:FindFirstChild("Source")
+			local Lines = linesContainer:FindFirstChild("Lines")
+
+			Source.ZIndex = Source.ZIndex + sum * 10
+			Lines.ZIndex = Lines.ZIndex + sum * 10
+			Source.TextEditable = not sizeData.readonly
+
+			for _, item in next, Source:GetChildren() do
+				item.ZIndex = item.ZIndex + sum * 10 + 1
+			end
+
+			Source.Comments.ZIndex = Source.Comments.ZIndex + 1
+
+			local keywordsTextData = {
+				"and",
+				"break",
+				"do",
+				"else",
+				"elseif",
+				"end",
+				"false",
+				"for",
+				"function",
+				"goto",
+				"if",
+				"in",
+				"local",
+				"nil",
+				"not",
+				"or",
+				"repeat",
+				"return",
+				"then",
+				"true",
+				"until",
+				"while"
+			}
+			local globalsTextData = {
+				"getrawmetatable",
+				"newcclosure",
+				"islclosure",
+				"setclipboard",
+				"game",
+				"workspace",
+				"script",
+				"math",
+				"string",
+				"table",
+				"print",
+				"wait",
+				"BrickColor",
+				"Color3",
+				"next",
+				"pairs",
+				"ipairs",
+				"select",
+				"unpack",
+				"Instance",
+				"Vector2",
+				"Vector3",
+				"CFrame",
+				"Ray",
+				"UDim2",
+				"Enum",
+				"assert",
+				"error",
+				"warn",
+				"tick",
+				"loadstring",
+				"_G",
+				"shared",
+				"getfenv",
+				"setfenv",
+				"newproxy",
+				"setmetatable",
+				"getmetatable",
+				"os",
+				"debug",
+				"pcall",
+				"ypcall",
+				"xpcall",
+				"rawequal",
+				"rawset",
+				"rawget",
+				"tonumber",
+				"tostring",
+				"type",
+				"typeof",
+				"_VERSION",
+				"coroutine",
+				"delay",
+				"require",
+				"spawn",
+				"LoadLibrary",
+				"settings",
+				"stats",
+				"time",
+				"UserSettings",
+				"version",
+				"Axes",
+				"ColorSequence",
+				"Faces",
+				"ColorSequenceKeypoint",
+				"NumberRange",
+				"NumberSequence",
+				"NumberSequenceKeypoint",
+				"gcinfo",
+				"elapsedTime",
+				"collectgarbage",
+				"PhysicalProperties",
+				"Rect",
+				"Region3",
+				"Region3int16",
+				"UDim",
+				"Vector2int16",
+				"Vector3int16",
+				"load",
+				"fire",
+				"Fire"
+			}
+
+			local function gsub(gsubArgument, data)
+				local vData = {}
+				local gsubData = {
+					["="] = true,
+					["."] = true,
+					[","] = true,
+					["("] = true,
+					[")"] = true,
+					["["] = true,
+					["]"] = true,
+					["{"] = true,
+					["}"] = true,
+					[":"] = true,
+					["*"] = true,
+					["/"] = true,
+					["+"] = true,
+					["-"] = true,
+					["%"] = true,
+					[";"] = true,
+					["~"] = true
+				}
+
+				for _, item in pairs(data) do
+					vData[item] = true
+				end
+
+				return (gsubArgument:gsub(".", function(gsubArgument)
+					if gsubData[gsubArgument] == nil then
+						return gsubArgument
+					end
+
+					return " "
+				end):gsub("%S+", function(gsubArgument)
+					if vData[gsubArgument] == nil then
+						return (" "):rep(#gsubArgument)
+					end
+
+					return gsubArgument
+				end))
+			end
+			local function handleTokensText(tokensTextArgument)
+				local tokensTextData = {
+					["="] = true,
+					["."] = true,
+					[","] = true,
+					["("] = true,
+					[")"] = true,
+					["["] = true,
+					["]"] = true,
+					["{"] = true,
+					["}"] = true,
+					[":"] = true,
+					["*"] = true,
+					["/"] = true,
+					["+"] = true,
+					["-"] = true,
+					["%"] = true,
+					[";"] = true,
+					["~"] = true
+				}
+				local tokensText = ""
+
+				tokensTextArgument:gsub(".", function(text)
+					if tokensTextData[text] == nil then
+						if text ~= "\n" then
+							if text ~= "\t" then
+								tokensText = tokensText .. " "
+							else
+								tokensText = tokensText .. "\t"
+							end
+						else
+							tokensText = tokensText .. "\n"
+						end
+					else
+						tokensText = tokensText .. text
+					end
+				end)
+
+				return tokensText
+			end
+			local function handleStringsText(stringsTextArgument)
+				local stringsText = ""
+				local stringsTextFlag = false
+
+				stringsTextArgument:gsub(".", function(text)
+					if stringsTextFlag ~= false or text ~= "\"" then
+						if stringsTextFlag == true and text == "\"" then
+							stringsTextFlag = false
+						end
+					else
+						stringsTextFlag = true
+					end
+
+					if stringsTextFlag ~= false or text ~= "\"" then
+						if text ~= "\n" then
+							if text ~= "\t" then
+								if stringsTextFlag ~= true then
+									if stringsTextFlag == false then
+										stringsText = stringsText .. " "
+									end
+								else
+									stringsText = stringsText .. text
+								end
+							else
+								stringsText = stringsText .. "\t"
+							end
+						else
+							stringsText = stringsText .. "\n"
+						end
+					else
+						stringsText = stringsText .. "\""
+					end
+				end)
+
+				return stringsText
+			end
+			local function handleInfoText(infoTextArgument)
+				local infoText = ""
+				local infoTextFlag = false
+
+				infoTextArgument:gsub(".", function(delimiter)
+					if infoTextFlag ~= false or delimiter ~= "[" then
+						if infoTextFlag == true and delimiter == "]" then
+							infoTextFlag = false
+						end
+					else
+						infoTextFlag = true
+					end
+
+					if infoTextFlag ~= false or delimiter ~= "]" then
+						if delimiter ~= "\n" then
+							if delimiter ~= "\t" then
+								if infoTextFlag ~= true then
+									if infoTextFlag == false then
+										infoText = infoText .. " "
+									end
+								else
+									infoText = infoText .. delimiter
+								end
+							else
+								infoText = infoText .. "\t"
+							end
+						else
+							infoText = infoText .. "\n"
+						end
+					else
+						infoText = infoText .. "]"
+					end
+				end)
+
+				return infoText
+			end
+			local function handleCommentsText(commentsTextArgument)
+				local commentsText = ""
+
+				commentsTextArgument:gsub("[^\r\n]+", function(commentsTextArgument)
+					local commentsTextFlag = false
+					local commentsTextNumber = 0
+
+					commentsTextArgument:gsub(".", function(text)
+						commentsTextNumber = commentsTextNumber + 1
+
+						if commentsTextArgument:sub(commentsTextNumber, commentsTextNumber + 1) == "--" then
+							commentsTextFlag = true
+						end
+
+						if commentsTextFlag ~= true then
+							commentsText = commentsText .. " "
+						else
+							commentsText = commentsText .. text
+						end
+					end)
+					commentsText = commentsText
+				end)
+
+				return commentsText
+			end
+			local function handleNumbersText(numbersTextArgument)
+				local numbersText = ""
+
+				numbersTextArgument:gsub(".", function(text)
+					if tonumber(text) == nil then
+						if text ~= "\n" then
+							if text ~= "\t" then
+								numbersText = numbersText .. " "
+							else
+								numbersText = numbersText .. "\t"
+							end
+						else
+							numbersText = numbersText .. "\n"
+						end
+					else
+						numbersText = numbersText .. text
+					end
+				end)
+
+				return numbersText
+			end
+			local function onChanged(argument)
+				if argument == "Text" then
+					Source.Text = Source.Text:gsub("\r", "")
+					Source.Text = Source.Text:gsub("\t", "      ")
+
+					local SourceText = Source.Text
+
+					Source.Keywords.Text = gsub(SourceText, keywordsTextData)
+					Source.Globals.Text = gsub(SourceText, globalsTextData)
+					Source.RemoteHighlight.Text = gsub(SourceText, {
+						"FireServer",
+						"fireServer",
+						"InvokeServer",
+						"invokeServer"
+					})
+					Source.Tokens.Text = handleTokensText(SourceText)
+					Source.Numbers.Text = handleNumbersText(SourceText)
+					Source.Strings.Text = handleStringsText(SourceText)
+					Source.Comments.Text = handleCommentsText(SourceText)
+
+					local sum = 1
+
+					SourceText:gsub("\n", function()
+						sum = sum + 1
+					end)
+					Lines.Text = ""
+
+					for i = 1, sum do
+						Lines.Text = Lines.Text .. i .. "\n"
+					end
+
+					linesContainer.CanvasSize = UDim2.new(0, 0, sum * 0.153846154, 0)
+				end
+
+				if argument == "Text" then
+					Source.Text = Source.Text:gsub("\r", "")
+					Source.Text = Source.Text:gsub("\t", "      ")
+
+					local SourceText = Source.Text
+
+					Source.Info.Text = handleInfoText(SourceText)
+
+					local sum = 1
+
+					SourceText:gsub("\n", function()
+						sum = sum + 1
+					end)
+					linesContainer.CanvasSize = UDim2.new(0, 0, sum * 0.153846154, 0)
+				end
+			end
+
+			if sizeData.source ~= "Lua" then
+				if sizeData.source == "Logs" then
+					Lines.Visible = false
+					highlight_logs("Text")
+					Source.Changed:Connect(highlight_logs)
+				end
+			else
+				onChanged("Text")
+				Source.Changed:Connect(onChanged)
+			end
+
+			function getData.Set(_, displayValue)
+				Source.Text = tostring(displayValue)
+			end
+			function getData.Get(_)
+				return Source.Text
+			end
+			function getData.Log(_, displayValue)
+				Source.Text = Source.Text .. "[*] " .. tostring(displayValue) .. "\n"
+			end
+
+			return getData, secondaryClone
+		end
+		function data.AddHorizontalAlignment(_)
+			local addButtonData = {}
+			local secondaryParent = Prefabs:FindFirstChild("HorizontalAlignment"):Clone()
+
+			secondaryParent.Parent = parent
+
+			function addButtonData.AddButton(_, ...)
+				local instanceData = { data:AddButton(...) }
+
+				if typeof(instanceData[1]) ~= "table" then
+					local instance = instanceData[1]
+
+					instance.Parent = secondaryParent
+
+					return instance
+				end
+
+				local result = instanceData[1]
+				local instance = instanceData[2]
+
+				instance.Parent = secondaryParent
+
+				return result, instance
+			end
+
+			return addButtonData, secondaryParent
+		end
+		function data.AddFolder(_, textFlag)
+			local kData = {}
+			local text = tostring(textFlag or "New Folder")
+			local buttonContainer = Prefabs:FindFirstChild("Folder"):Clone()
+			local Button = buttonContainer:FindFirstChild("Button")
+			local Objects = buttonContainer:FindFirstChild("Objects")
+			local toggle = Button:FindFirstChild("Toggle")
+
+			buttonContainer.ZIndex = buttonContainer.ZIndex + sum * 10
+			Button.ZIndex = Button.ZIndex + sum * 10
+			Objects.ZIndex = Objects.ZIndex + sum * 10
+			toggle.ZIndex = toggle.ZIndex + sum * 10
+			Button:GetChildren()[1].ZIndex = Button:GetChildren()[1].ZIndex + sum * 10
+			buttonContainer.Parent = parent
+			Button.Text = "      " .. text
+			spawn(function()
+				while true do
+					if Button and Button:GetChildren()[1] then
+						Button:GetChildren()[1].ImageColor3 = capturedFlagData.main_color
+					end
+
+					RunService.Heartbeat:Wait()
+				end
+			end)
+
+			local function handler()
+				local sum = 25
+
+				for _, item in next, Objects:GetChildren() do
+					if not item:IsA("UIListLayout") then
+						sum = sum + item.AbsoluteSize.Y + 5
+					end
+				end
+
+				return sum
+			end
+
+			local flag = false
+
+			Button.MouseButton1Click:Connect(function()
+				if not flag then
+					handleInstanceProperties(toggle, {
+						Rotation = 90
+					}, capturedFlagData.tween_time)
+					Objects.Visible = true
+				else
+					handleInstanceProperties(toggle, {
+						Rotation = 0
+					}, capturedFlagData.tween_time)
+					Objects.Visible = false
+				end
+
+				flag = not flag
+			end)
+			spawn(function()
+				while true do
+					handleInstanceProperties(buttonContainer, {
+						Size = UDim2.new(1, 0, 0, flag and handler() or 20)
+					}, capturedFlagData.tween_time)
+					wait()
+				end
+			end)
+
+			for k, item in next, data do
+				kData[k] = function(...)
+					local instanceData = { item(...) }
+
+					if typeof(instanceData[1]) ~= "table" then
+						local instance = instanceData[1]
+
+						instance.Parent = Objects
+
+						return instance
+					end
+
+					local result = instanceData[1]
+					local instance = instanceData[2]
+
+					instance.Parent = Objects
+
+					return result, instance
+				end
+			end
+
+			return kData, buttonContainer
+		end
+
+		return data, parent
+	end
+
+	for _, item in next, clone:GetDescendants() do
+		if handler(item, "ZIndex") then
+			item.ZIndex = item.ZIndex + sum * 10
+		end
+	end
+
+	return data, clone
+end
+
+return data
